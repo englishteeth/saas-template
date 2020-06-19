@@ -1,11 +1,6 @@
 import React from "react";
 import { shallow } from "enzyme";
 import NavBar from "../../../components/nav/NavBar";
-import {
-  NavbarBrand,
-  Navbar,
-} from "reactstrap";
-
 
 describe("Navigation Bar Component Testing", () => {
   let wrapper;
