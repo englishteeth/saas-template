@@ -9,10 +9,14 @@ const NavigationBar = (props) => {
   return (
     <>
       <Navbar color="default" dark expand="lg">
-        <NavbarBrand href="/">Default Color</NavbarBrand>
+        <NavbarBrand href="/">{props.brand}</NavbarBrand>
       </Navbar>
     </>
   );
+}
+
+NavigationBar.defaultProps = {
+  brand: 'No Brand'
 }
 
 export default NavigationBar;

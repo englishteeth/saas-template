@@ -5,7 +5,11 @@ import NavigationBar from "../../../components/nav/NavigationBar";
 describe("Navigation Bar Component Testing", () => {
   let wrapper;
   beforeEach(() => {
-    wrapper = shallow(<NavigationBar />);
+    wrapper = shallow(<NavigationBar brand='My Brand' />);
+  });
+
+  test("Navigation Bar should render", () => {
+    expect(wrapper).not.toBeEmptyRender();
   });
 
   test("Bootstrap Navbar should be rendered", () => {
@@ -21,6 +25,6 @@ describe("Navigation Bar Component Testing", () => {
     const nav = wrapper.find('NavbarBrand')
     expect(nav).toExist();
     expect(nav).toHaveProp('href', '/');
-    expect(nav.contains('Default Color')).toEqual(true);
+    expect(nav.contains('My Brand')).toEqual(true);
   });
 });
