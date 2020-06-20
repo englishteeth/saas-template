@@ -5,7 +5,7 @@ import {
   Navbar,
 } from "reactstrap";
 
-const NavBar = (props) => {
+const NavigationBar = (props) => {
   return (
     <>
       <Navbar color="default" dark expand="lg">
@@ -15,4 +15,4 @@ const NavBar = (props) => {
   );
 }
 
-export default NavBar;
+export default NavigationBar;
