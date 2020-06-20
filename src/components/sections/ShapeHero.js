@@ -20,8 +20,13 @@ const ShapeHero = (props) => {
         <Container>
           <Row>
             <Col lg="6">
-              <h1>{props.headline}</h1>
-              <p className="lead">{props.lead}</p>
+              <h1 className="display-3 text-white">
+                {props.headline}
+                {(props.subline) &&
+                  <span>{props.subline}</span>
+                }
+              </h1>
+              <p className="lead text-white">{props.lead}</p>
             </Col>
           </Row>
         </Container>

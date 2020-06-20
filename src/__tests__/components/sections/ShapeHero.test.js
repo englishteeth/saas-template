@@ -33,6 +33,7 @@ describe("Shape Hero Component Testing", () => {
     const headline = container.find("h1");
     expect(headline).toExist();
     expect(headline.text()).toEqual("Hero Heading Text");
+    expect(headline.find('span')).not.toExist();
     const lead = container.find("p");
     expect(lead).toExist();
     expect(lead).toHaveClassName('lead');
@@ -43,6 +44,13 @@ describe("Shape Hero Component Testing", () => {
     const separator = wrapper.find('.separator');
     expect(separator).toExist();
     expect(separator.html()).toEqual('<div class="separator separator-bottom separator-skew"><svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" version="1.1" viewBox="0 0 2560 100" x="0" y="0"><polygon class="fill-white" points="2560 0 2560 100 0 100"></polygon></svg></div>');
+  });
+
+  test("Shape Hero should display a sub-headline when provided", () => {
+    wrapper = shallow(<ShapeHero subline="subline text" />);
+    const headline = wrapper.find("h1");
+    expect(headline.find('span')).toExist();
+    expect(headline.find('span').text()).toEqual("subline text");
   });
 
 });
