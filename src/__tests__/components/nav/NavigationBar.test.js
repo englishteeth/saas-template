@@ -1,11 +1,11 @@
 import React from "react";
 import { shallow } from "enzyme";
-import NavBar from "../../../components/nav/NavBar";
+import NavigationBar from "../../../components/nav/NavigationBar";
 
 describe("Navigation Bar Component Testing", () => {
   let wrapper;
   beforeEach(() => {
-    wrapper = shallow(<NavBar />);
+    wrapper = shallow(<NavigationBar />);
   });
 
   test("Bootstrap Navbar should be rendered", () => {

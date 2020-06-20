@@ -1,11 +1,11 @@
 import React from "react";
 
-import NavBar from "../components/nav/NavBar"
+import NavigationBar from "../components/nav/NavigationBar"
 
 function Landing() {
   return (
     <>
-      <NavBar />
+      <NavigationBar />
       <main>I am Landing!</main>
     </>
   );

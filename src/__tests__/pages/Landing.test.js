@@ -2,7 +2,7 @@ import React from "react";
 import { shallow } from "enzyme";
 import Landing from "../../pages/Landing";
 
-import NavBar from "../../components/nav/NavBar"
+import NavigationBar from "../../components/nav/NavigationBar"
 
 describe("Landing Page Testing", () => {
   let wrapper;
@@ -15,7 +15,7 @@ describe("Landing Page Testing", () => {
   });
 
   test("Navigation Bar should be present", () => {
-    expect(wrapper.find(NavBar)).toBeDefined();
+    expect(wrapper.find(NavigationBar)).toExist();
   });
 
 });
