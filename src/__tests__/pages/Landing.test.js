@@ -5,7 +5,7 @@ import Landing from "../../pages/Landing";
 import NavigationBar from "../../components/nav/NavigationBar"
 import ShapeHero from "../../components/sections/ShapeHero"
 import ProductSection from "../../components/sections/ProductSection"
-
+import Footer from "../../components/nav/Footer"
 
 describe("Landing Page Testing", () => {
   let wrapper;
@@ -27,6 +27,10 @@ describe("Landing Page Testing", () => {
 
   test("Product Section should be present", () => {
     expect(wrapper.find(ProductSection)).toExist();
+  });
+
+  test("Footer should be present", () => {
+    expect(wrapper.find(Footer)).toExist();
   });
 
 });
