@@ -3,6 +3,7 @@ import React from "react";
 import NavigationBar from "../components/nav/NavigationBar"
 import ShapeHero from "../components/sections/ShapeHero"
 import ProductSection from "../components/sections/ProductSection"
+import Footer from "../components/nav/Footer"
 
 const products = [
   {
@@ -40,6 +41,7 @@ function Landing() {
       <NavigationBar />
       <ShapeHero />
       <ProductSection products={products} />
+      <Footer />
     </>
   );
 }
