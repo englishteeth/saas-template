@@ -6,6 +6,7 @@ import ProductSection from "../components/sections/ProductSection"
 
 const products = [
   {
+    style: "primary",
     icon: "ni ni-istanbul",
     heading: "This is the product!",
     description: "The product description goes here.",
@@ -14,6 +15,7 @@ const products = [
     action: "Do It!"
   },
   {
+    style: "warning",
     icon: "ni ni-istanbul",
     heading: "This is the product!",
     description: "The product description goes here.",
@@ -22,6 +24,7 @@ const products = [
     action: "Do It!"
   },
   {
+    style: "success",
     icon: "ni ni-istanbul",
     heading: "This is the product!",
     description: "The product description goes here.",
