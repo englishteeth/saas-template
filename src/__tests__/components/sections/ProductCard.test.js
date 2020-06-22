@@ -73,5 +73,31 @@ describe("Product Card Component Testing", () => {
     expect(button.contains(product.action)).toEqual(true);
   });
 
+  test("should be able to specify the card style", () => {
+    wrapper = shallow(<ProductCard />);
+    expect(wrapper.find('CardBody').find('.icon')).toHaveClassName("icon-shape-default");
+    expect(wrapper.find('CardBody').find('h6')).toHaveClassName("text-default");
+    expect(wrapper.find('CardBody').find('Button')).toHaveProp('color', 'default');
+    const primaryProduct = {style:"primary", tags: ["A", "B"]};
+    wrapper.find('Badge').forEach((node) => {
+      expect(node).toHaveProp('color', 'default');
+    });
+    wrapper = shallow(<ProductCard product={primaryProduct} />);
+    expect(wrapper.find('CardBody').find('.icon')).toHaveClassName("icon-shape-primary");
+    expect(wrapper.find('CardBody').find('h6')).toHaveClassName("text-primary");
+    expect(wrapper.find('CardBody').find('Button')).toHaveProp('color', 'primary');
+    wrapper.find('Badge').forEach((node) => {
+      expect(node).toHaveProp('color', 'primary');
+    });
+    const successProduct = {style:"success", tags: ["A", "B"]};
+    wrapper = shallow(<ProductCard product={successProduct} />);
+    expect(wrapper.find('CardBody').find('.icon')).toHaveClassName("icon-shape-success");
+    expect(wrapper.find('CardBody').find('h6')).toHaveClassName("text-success");
+    expect(wrapper.find('CardBody').find('Button')).toHaveProp('color', 'success');
+    wrapper.find('Badge').forEach((node) => {
+      expect(node).toHaveProp('color', 'success');
+    });
+  });
+
 
 });
