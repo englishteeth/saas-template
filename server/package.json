@@ -3,8 +3,11 @@
   "version": "0.1.0",
   "description": "Backend services for saas template site",
   "private": true,
+  "main": "src/app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "nodemon",
+    "test": "jest",
+    "test:watch": "npm run test -- --watch"
   },
   "keywords": [],
   "repository": {
@@ -12,12 +15,15 @@
     "url": "git@github.com:englishteeth/saas-template.git"
   },
   "dependencies": {
+    "axios": "^0.19.2",
     "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
     "express": "^4.17.1",
-    "got": "^11.3.0"
+    "jws": "^4.0.0"
   },
   "devDependencies": {
     "chai": "^4.2.0",
+    "jest": "^26.1.0",
     "mocha": "^7.1.2",
     "node-mocks-http": "^1.8.1",
     "nodemon": "^2.0.3",

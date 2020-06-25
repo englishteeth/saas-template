@@ -3,6 +3,7 @@ import React from "react";
 import {
   NavbarBrand,
   Navbar,
+  Button,
 } from "reactstrap";
 
 const NavigationBar = (props) => {
@@ -11,6 +12,8 @@ const NavigationBar = (props) => {
       <Navbar color="default" dark expand="lg">
         <NavbarBrand href="/">{props.brand}</NavbarBrand>
       </Navbar>
+      <Button href="http://localhost:9000/login" tag="a">login</Button>
+
     </>
   );
 }

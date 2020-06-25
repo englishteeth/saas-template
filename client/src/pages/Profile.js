@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import Greeting from "../components/greeting";
 
 function Profile() {
   const [error, setError] = useState(null);
@@ -6,7 +7,10 @@ function Profile() {
   const [profile, setProfile] = useState({});
 
   useEffect(() => {
-    fetch("https://jsonplaceholder.typicode.com/users/7")
+    // fetch("https://jsonplaceholder.typicode.com/users/7")
+    fetch("http://localhost:9000/user", {
+      credentials: 'include' // fetch won't send cookies unless you set credentials
+    })
     .then(res => res.json())
     .then(
       (data) => {
@@ -25,7 +29,8 @@ function Profile() {
   return (
     <>
       <h1>The Profile Page</h1>
-      <div>{profile.name} - {profile.email}</div>
+      <Greeting  name={profile.name} />
+      <div>{profile.email}</div>
     </>
   );
 }
