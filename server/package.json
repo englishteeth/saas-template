@@ -1,0 +1,26 @@
+{
+  "name": "saas-template-server",
+  "version": "0.1.0",
+  "description": "Backend services for saas template site",
+  "private": true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:englishteeth/saas-template.git"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "got": "^11.3.0"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^7.1.2",
+    "node-mocks-http": "^1.8.1",
+    "nodemon": "^2.0.3",
+    "sinon": "^9.0.2"
+  }
+}
