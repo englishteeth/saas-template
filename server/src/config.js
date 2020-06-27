@@ -10,7 +10,8 @@ const config = {
   authProviderAuthorizeURL: process.env.AUTH_PROVIDER_AUTHORIZE_URL,
   authProviderTokenURL: process.env.AUTH_PROVIDER_TOKEN_URL,
   authProviderClientID: process.env.AUTH_PROVIDER_CLIENT_ID,
-  authProviderClientSecret: process.env.AUTH_PROVIDER_CLIENT_SECRET
+  authProviderClientSecret: process.env.AUTH_PROVIDER_CLIENT_SECRET,
+  siteURL: process.env.SITE_URL
 }
 
 const get = (item) => config[item];

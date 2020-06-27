@@ -27,38 +27,35 @@ var decodeToken = function (jwt, cb) {
   });
 };
 
-router.get('/', (req, res) => {
+router.get('/', async(req, res) => {
   const data = { 
-    'client_id': config.authProviderClientID,
-    'client_secret': config.authProviderClientSecret,
+    'client_id': config.get('authProviderClientID'),
+    'client_secret': config.get('authProviderClientSecret'),
     'grant_type': 'authorization_code',
-    'redirect_uri': config.authCallbackURL,
+    'redirect_uri': config.get('authCallbackURL'),
     'code': req.query.code
   };
   const options = {
-    method: 'POST',
-    headers: { 'content-type': 'application/x-www-form-urlencoded' },
-    data: qs.stringify(data),
-    url: config.authProviderTokenURL
+    headers: { 'content-type': 'application/x-www-form-urlencoded' }
   };
-  axios(options)
+  axios.post(config.get('authProviderTokenURL'), qs.stringify(data), options)
   .then( 
     response => {
-    decodeToken(response.data.access_token, (err, decodedToken) => {
-      if (err) return new Error(err);
-      console.log(decodedToken);
-      res.cookie('token_signature' , decodedToken.signature, {httpOnly: true});
-    });
-
-    res.setHeader(response.data.token_type, response.data.access_token);
-    res.redirect(`http://localhost:3000`);
+      // decodeToken(response.data.access_token, (err, decodedToken) => {
+      //   if (err) return new Error(err);
+      //   console.log(decodedToken);
+      // });
+      res.cookie('access_token' , response.data.access_token, {httpOnly: true});
+      res.cookie('authorization' , {user:'foobar'}, {httpOnly: false});
+      res.setHeader(response.data.token_type, response.data.access_token);
+      res.redirect(config.get('siteURL'));
     },
     error => {
-    console.log(error);
-    res.redirect(`http://localhost:3000`);
+      // console.log(error);
+      res.redirect(config.get('siteURL'));
     }
   );
 
 });
 
-module.exports = router;
+module.exports = router
