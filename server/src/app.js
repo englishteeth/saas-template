@@ -16,6 +16,7 @@ app.use(express.json());
 
 // use routes
 app.use('/login', require('./routes/login'));
+app.use('/logout', require('./routes/logout'));
 app.use('/authorization-code/callback', require('./routes/auth-callback'));
 app.use('/user', require('./routes/user'));
 

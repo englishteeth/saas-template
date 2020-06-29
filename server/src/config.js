@@ -11,6 +11,7 @@ const config = {
   authProviderTokenURL: process.env.AUTH_PROVIDER_TOKEN_URL,
   authProviderIntrospectURL: process.env.AUTH_PROVIDER_INTROSPECT_URL,
   authProviderUserInfoURL: process.env.AUTH_PROVIDER_USER_INFO_URL,
+  authProviderLogoutURL: process.env.AUTH_PROVIDER_LOGOUT_URL,
   authProviderClientID: process.env.AUTH_PROVIDER_CLIENT_ID,
   authProviderClientSecret: process.env.AUTH_PROVIDER_CLIENT_SECRET,
   siteURL: process.env.SITE_URL

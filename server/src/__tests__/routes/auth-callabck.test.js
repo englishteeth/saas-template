@@ -118,6 +118,29 @@ describe('Auth callback route defined ', () => {
     router(mockRequest, mockResponse);
   });
 
+  it("Should put id token in HttpOnly Cookie", (done) => {
+    const data = { token_type: 'Bearer', access_token: 'whatever it returned from the idp', id_token: 'id_token returned from the idp'};
+    const resolved = new Promise((r) => r({ data }));
+    const axiosStub = sandbox.stub(axios, 'post').returns(resolved);
+
+    const mockRequest = httpMocks.createRequest({
+      method: "GET",
+      url: "/?code=auth-code"
+    });
+    const mockResponse = httpMocks.createResponse({
+      eventEmitter: require('events').EventEmitter
+    });
+
+    mockResponse.on('end', function() {
+      expect(this.cookies).toHaveProperty("id_token");
+      expect(this.cookies.id_token).toHaveProperty("value", 'id_token returned from the idp');
+      expect(this.cookies.id_token).toHaveProperty("options", {"httpOnly": true});
+      done();
+    });
+
+    router(mockRequest, mockResponse);
+  });
+
   it("Should create readable authorization cookie", (done) => {
     const data = { token_type: 'Bearer', access_token: 'blah blah blah' };
     const resolved = new Promise((r) => r({ data }));

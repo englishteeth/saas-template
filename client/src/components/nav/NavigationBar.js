@@ -13,7 +13,7 @@ const NavigationBar = (props) => {
         <NavbarBrand href="/">{props.brand}</NavbarBrand>
       </Navbar>
       <Button href="http://localhost:9000/login" tag="a">login</Button>
-
+      <Button href="http://localhost:9000/logout" tag="a">logout</Button>
     </>
   );
 }
