@@ -1,6 +1,7 @@
 const env = require('./config');
 
 const express = require('express');
+var cookieParser = require('cookie-parser')
 
 // configure Express app and install the JSON middleware for parsing JSON bodies
 const app = express();
@@ -10,6 +11,7 @@ app.use(cors({
   origin: true,
   credentials: true
 }));
+app.use(cookieParser());
 app.use(express.json());
 
 // use routes
