@@ -6,14 +6,18 @@ import {
   Button,
 } from "reactstrap";
 
+import Authentication from "../../services/authentication";
+
+const auth = new Authentication();
+
 const NavigationBar = (props) => {
   return (
     <>
       <Navbar color="default" dark expand="lg">
         <NavbarBrand href="/">{props.brand}</NavbarBrand>
       </Navbar>
-      <Button href="http://localhost:9000/login" tag="a">login</Button>
-      <Button href="http://localhost:9000/logout" tag="a">logout</Button>
+      <Button onClick={auth.login}>Login</Button>
+      <Button onClick={auth.logout}>Logout</Button>
     </>
   );
 }

@@ -29,8 +29,7 @@ function Profile() {
   return (
     <>
       <h1>The Profile Page</h1>
-      <Greeting  name={profile.name} />
-      <div>{profile.email}</div>
+      <Greeting  name={profile.username} />
     </>
   );
 }
