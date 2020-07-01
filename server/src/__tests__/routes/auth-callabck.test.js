@@ -15,6 +15,7 @@ describe('Auth callback route defined ', () => {
     sandbox = require('sinon').createSandbox();
     sandbox.stub(config, "get")
       .withArgs("siteURL").returns("https://www.saas-template")
+      .withArgs("siteAuthCallbackURL").returns("https://www.saas-template/auth-callback")
       .withArgs("authProviderClientID").returns("client-id")
       .withArgs("authProviderClientSecret").returns("client-secret")
       .withArgs("authCallbackURL").returns("https://api.saas.template/authorization-code/callback")
@@ -40,7 +41,7 @@ describe('Auth callback route defined ', () => {
     mockResponse.on('end', function() {
       expect(this.cookies).toHaveProperty("authorization");
       expect(this._getStatusCode()).toBe(302);
-      expect(this._getRedirectUrl()).toBe("https://www.saas-template");
+      expect(this._getRedirectUrl()).toBe("https://www.saas-template/auth-callback");
       done();
     });
     
@@ -61,7 +62,7 @@ describe('Auth callback route defined ', () => {
     mockResponse.on('end', function() {
       expect(this.cookies).not.toHaveProperty("authorization");
       expect(this._getStatusCode()).toBe(302);
-      expect(this._getRedirectUrl()).toBe("https://www.saas-template");
+      expect(this._getRedirectUrl()).toBe("https://www.saas-template/auth-callback");
       done();
     });
 

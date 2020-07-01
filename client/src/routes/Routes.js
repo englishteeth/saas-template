@@ -1,7 +1,7 @@
 import React from "react";
 import { Route, Switch } from "react-router-dom";
 
-import { PrivateRoute } from "./PrivateRoute";
+import { PrivateRoute } from "../components/PrivateRoute";
 import Landing from "../pages/Landing";
 import Profile from "../pages/Profile";
 

@@ -49,11 +49,11 @@ router.get('/', async(req, res) => {
       res.cookie('id_token' , response.data.id_token, {httpOnly: true});
       res.cookie('authorization' , {user:'foobar'}, {httpOnly: false});
       res.setHeader(response.data.token_type, response.data.access_token);
-      res.redirect(config.get('siteURL'));
+      res.redirect(config.get('siteAuthCallbackURL'));
     },
     error => {
       // console.log(error);
-      res.redirect(config.get('siteURL'));
+      res.redirect(config.get('siteAuthCallbackURL'));
     }
   );
 

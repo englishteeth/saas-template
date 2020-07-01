@@ -6,18 +6,17 @@ import {
   Button,
 } from "reactstrap";
 
-import Authentication from "../../services/authentication";
-
-const auth = new Authentication();
+import { useAuthentication } from "../../providers/authentication-context";
 
 const NavigationBar = (props) => {
+  const {signinRedirectCallback, logout} = useAuthentication();
   return (
     <>
       <Navbar color="default" dark expand="lg">
         <NavbarBrand href="/">{props.brand}</NavbarBrand>
       </Navbar>
-      <Button onClick={auth.login}>Login</Button>
-      <Button onClick={auth.logout}>Logout</Button>
+      <Button onClick={signinRedirectCallback}>Login</Button>
+      <Button onClick={logout}>Logout</Button>
     </>
   );
 }
