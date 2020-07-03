@@ -1,6 +1,5 @@
 import React from 'react'
-// import { login, logout, isAuthenticated } from "../services/authentication";
-
+import Cookie from "js-cookie"
 
 const AuthenticationContext = React.createContext();
 
@@ -16,12 +15,14 @@ function useAuthentication() {
     throw new Error(`useAuthentication must be used within a AuthenticationProvider`);
   }
 
-  const signinRedirectCallback = () => {
-    window.location.replace('http://localhost:9000/login');
+  const signinRedirectCallback = (cb) => {
+    console.log("callback");
+    cb("/");
+    // window.location.replace('/profile');
   }
 
   const signinRedirect = () => {
-
+    window.location.replace('http://localhost:9000/login');
   };
   
   const signinSilentCallback = () => {
@@ -32,8 +33,18 @@ function useAuthentication() {
     window.location.replace('http://localhost:9000/logout');
   }
   
+  /*
+  ************************************************
+  * How do we determine if we are authenticated?
+  *
+  * 1. Presence of the authorization cookie
+  * 
+  ************************************************
+  */
   const isAuthenticated = () => {
-   return true; 
+    const authorizationCookie = Cookie.getJSON("authorization");
+    console.log(authorizationCookie);
+    return !!authorizationCookie; 
   }
 
   const [user, setUser] = context;

@@ -157,7 +157,7 @@ describe('Auth callback route defined ', () => {
 
     mockResponse.on('end', function() {
       expect(this.cookies).toHaveProperty("authorization");
-      expect(this.cookies.authorization).toHaveProperty("value", {user:'foobar'});
+      expect(this.cookies.authorization).toHaveProperty("value", JSON.stringify({user:'foobar'}));
       expect(this.cookies.authorization).toHaveProperty("options", {"httpOnly": false});
       done();
     });

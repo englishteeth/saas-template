@@ -47,7 +47,7 @@ router.get('/', async(req, res) => {
       // });
       res.cookie('access_token' , response.data.access_token, {httpOnly: true});
       res.cookie('id_token' , response.data.id_token, {httpOnly: true});
-      res.cookie('authorization' , {user:'foobar'}, {httpOnly: false});
+      res.cookie('authorization' , JSON.stringify({user:'foobar'}), {httpOnly: false});
       res.setHeader(response.data.token_type, response.data.access_token);
       res.redirect(config.get('siteAuthCallbackURL'));
     },

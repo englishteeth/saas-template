@@ -9,13 +9,13 @@ import {
 import { useAuthentication } from "../../providers/authentication-context";
 
 const NavigationBar = (props) => {
-  const {signinRedirectCallback, logout} = useAuthentication();
+  const {signinRedirect, logout} = useAuthentication();
   return (
     <>
       <Navbar color="default" dark expand="lg">
         <NavbarBrand href="/">{props.brand}</NavbarBrand>
       </Navbar>
-      <Button onClick={signinRedirectCallback}>Login</Button>
+      <Button onClick={signinRedirect}>Login</Button>
       <Button onClick={logout}>Logout</Button>
     </>
   );
