@@ -1,12 +1,18 @@
 import React from 'react'
 import Cookie from "js-cookie"
+import { nanoid } from 'nanoid'
 
 const AuthenticationContext = React.createContext();
 
 const AuthenticationProvider = ({children}) => {
-  const [user, setUser] = React.useState({})
+  const [user, setUser] = React.useState({nonce: nonce()})
   const value = React.useMemo(() => [user, setUser], [user])
   return <AuthenticationContext.Provider value={value}>{children}</AuthenticationContext.Provider>
+}
+
+const nonce = () => {
+  if (!window.localStorage.getItem('nonce')) window.localStorage.setItem('nonce', nanoid());
+  return window.localStorage.getItem('nonce')
 }
 
 function useAuthentication() {
@@ -16,12 +22,14 @@ function useAuthentication() {
   }
 
   const signinRedirectCallback = (cb) => {
-    console.log("callback");
-    cb("/");
-    // window.location.replace('/profile');
+    const secureResource = localStorage.getItem('secureResource') || "/";
+    localStorage.removeItem('secureResource');
+    cb(secureResource);
   }
 
   const signinRedirect = () => {
+    const url = new URL(window.location.href);
+    localStorage.setItem('secureResource', url.pathname)
     window.location.replace('http://localhost:9000/login');
   };
   
@@ -43,7 +51,6 @@ function useAuthentication() {
   */
   const isAuthenticated = () => {
     const authorizationCookie = Cookie.getJSON("authorization");
-    console.log(authorizationCookie);
     return !!authorizationCookie; 
   }
 
