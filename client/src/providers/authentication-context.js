@@ -21,7 +21,7 @@ function useAuthentication() {
     throw new Error(`useAuthentication must be used within a AuthenticationProvider`);
   }
 
-  const signinRedirectCallback = (cb) => {
+  const authenticationCallback = (cb) => {
     const secureResource = localStorage.getItem('secureResource') || "/";
     localStorage.removeItem('secureResource');
     cb(secureResource);
@@ -32,36 +32,19 @@ function useAuthentication() {
     localStorage.setItem('secureResource', url.pathname)
     window.location.replace('http://localhost:9000/login');
   };
-  
-  const signinSilentCallback = () => {
-
-  };
-  
+    
   const logout = () => {
     window.location.replace('http://localhost:9000/logout');
   }
   
-  /*
-  ************************************************
-  * How do we determine if we are authenticated?
-  *
-  * 1. Presence of the authorization cookie
-  * 
-  ************************************************
-  */
   const isAuthenticated = () => {
     const authorizationCookie = Cookie.getJSON("authorization");
     return !!authorizationCookie; 
   }
 
-  const [user, setUser] = context;
-
   return {
-    user, 
-    setUser,
-    signinRedirectCallback,
+    authenticationCallback,
     signinRedirect,
-    signinSilentCallback,
     logout,
     isAuthenticated
   };

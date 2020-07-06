@@ -9,7 +9,7 @@ const products = [
   {
     style: "primary",
     icon: "ni ni-istanbul",
-    heading: "This is the product!",
+    heading: "This is product 1",
     description: "The product description goes here.",
     tags: ["This","That","The Other"],
     href: "/#anywhere",
@@ -18,7 +18,7 @@ const products = [
   {
     style: "warning",
     icon: "ni ni-istanbul",
-    heading: "This is the product!",
+    heading: "This is product 2",
     description: "The product description goes here.",
     tags: ["This","That","The Other"],
     href: "/#anywhere",
@@ -27,7 +27,7 @@ const products = [
   {
     style: "success",
     icon: "ni ni-istanbul",
-    heading: "This is the product!",
+    heading: "This is product 3",
     description: "The product description goes here.",
     tags: ["This","That","The Other"],
     href: "/#anywhere",
