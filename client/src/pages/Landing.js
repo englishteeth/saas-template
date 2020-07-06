@@ -1,9 +1,9 @@
 import React from "react";
 
-import NavigationBar from "../components/nav/NavigationBar"
-import ShapeHero from "../components/sections/ShapeHero"
-import ProductSection from "../components/sections/ProductSection"
-import Footer from "../components/nav/Footer"
+import NavigationBar from "../components/nav/navigation-bar"
+import ShapeHero from "../components/sections/shape-hero"
+import ProductSection from "../components/sections/product-section"
+import Footer from "../components/nav/footer"
 
 const products = [
   {

@@ -6,7 +6,7 @@ import {
   Col
 } from "reactstrap";
 
-import ProductCard from "./ProductCard"
+import ProductCard from "./product-card"
 
 const ProductSection = (props) => {
   const products = props.products.map( product => 

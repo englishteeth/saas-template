@@ -1,6 +1,6 @@
 import React from "react";
 import { Route } from "react-router-dom";
-import { useAuthentication } from "../providers/authentication-context";
+import { useAuthentication } from "../../providers/authentication-context";
 
 export const PrivateRoute = ({ component, ...rest }) => {
   

@@ -1,10 +1,10 @@
 import React from "react";
 import { Route, Switch } from "react-router-dom";
 
-import { AuthCallback } from "../components/auth-callback.js";
-import { PrivateRoute } from "../components/PrivateRoute";
-import Landing from "../pages/Landing";
-import Profile from "../pages/Profile";
+import { AuthCallback } from "../components/auth/auth-callback.js";
+import { PrivateRoute } from "../components/auth/private-route";
+import Landing from "../pages/landing";
+import Profile from "../pages/profile";
 
 export const Routes = (
   <Switch>
