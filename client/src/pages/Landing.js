@@ -1,7 +1,7 @@
 import React from "react";
 
 import NavigationBar from "../components/nav/NavigationBar"
-import ShapeHero from "../components/sections/ShapeHero"
+import Hero from "../components/sections/Hero"
 import ProductSection from "../components/sections/ProductSection"
 import Footer from "../components/nav/Footer"
 
@@ -39,7 +39,7 @@ function Landing() {
   return (
     <>
       <NavigationBar />
-      <ShapeHero />
+      <Hero />
       <ProductSection products={products} />
       <Footer />
     </>

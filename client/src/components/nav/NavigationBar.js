@@ -10,7 +10,7 @@ import Login from "../auth/login";
 const NavigationBar = (props) => {
   return (
     <>
-      <Navbar color="default" dark expand="lg">
+      <Navbar color="default" expand="lg">
         <NavbarBrand href="/">{props.brand}</NavbarBrand>
         <Login />
       </Navbar>
