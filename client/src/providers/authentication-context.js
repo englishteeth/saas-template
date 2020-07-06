@@ -27,13 +27,13 @@ function useAuthentication() {
     cb(secureResource);
   }
 
-  const signinRedirect = () => {
+  const signIn = () => {
     const url = new URL(window.location.href);
     localStorage.setItem('secureResource', url.pathname)
     window.location.replace('http://localhost:9000/login');
   };
     
-  const logout = () => {
+  const signOut = () => {
     window.location.replace('http://localhost:9000/logout');
   }
   
@@ -44,8 +44,8 @@ function useAuthentication() {
 
   return {
     authenticationCallback,
-    signinRedirect,
-    logout,
+    signIn,
+    signOut,
     isAuthenticated
   };
 }

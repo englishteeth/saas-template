@@ -4,10 +4,10 @@ import { useAuthentication } from "../providers/authentication-context";
 
 export const PrivateRoute = ({ component, ...rest }) => {
   
-  const {signinRedirect, isAuthenticated} = useAuthentication();
+  const {isAuthenticated, signIn} = useAuthentication();
   const renderFn = (Component) => (props) => {
     if (!!Component && isAuthenticated()) return <Component {...props} />;
-    signinRedirect();
+    signIn();
     return <span>loading</span>
   };
 

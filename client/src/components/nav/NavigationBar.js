@@ -2,21 +2,18 @@ import React from "react";
 
 import {
   NavbarBrand,
-  Navbar,
-  Button,
+  Navbar
 } from "reactstrap";
 
-import { useAuthentication } from "../../providers/authentication-context";
+import Login from "../auth/login";
 
 const NavigationBar = (props) => {
-  const {signinRedirect, logout} = useAuthentication();
   return (
     <>
       <Navbar color="default" dark expand="lg">
         <NavbarBrand href="/">{props.brand}</NavbarBrand>
+        <Login />
       </Navbar>
-      <Button onClick={signinRedirect}>Login</Button>
-      <Button onClick={logout}>Logout</Button>
     </>
   );
 }
