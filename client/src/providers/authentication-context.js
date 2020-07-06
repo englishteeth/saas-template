@@ -16,7 +16,7 @@ const nonce = () => {
 }
 
 function useAuthentication() {
-  const context = React.useContext(AuthenticationContext);git config --global user.email "git config --global user.email "
+  const context = React.useContext(AuthenticationContext);
   if (!context) {
     throw new Error(`useAuthentication must be used within a AuthenticationProvider`);
   }
