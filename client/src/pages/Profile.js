@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import NavigationBar from "../components/nav/navigation-bar"
 import Greeting from "../components/greeting";
 
 function Profile() {
@@ -28,8 +29,9 @@ function Profile() {
   if (!isLoaded) return <div>Loading...</div>;
   return (
     <>
+      <NavigationBar />
       <h1>The Profile Page</h1>
-      <Greeting  name={profile.username} />
+      <Greeting  name={profile.given_name} />
     </>
   );
 }
